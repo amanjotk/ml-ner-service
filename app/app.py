@@ -9,7 +9,7 @@ model = Model()
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
-    text = json.loads(data)["text"]
+    text = data["text"]
     prediction = model.recognize_entities(text)
     return jsonify(prediction)
 
