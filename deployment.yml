@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-ner
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: simple-ner
+    spec:
+      containers:
+      - name: simple-ner
+        image: simple-ner
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+  selector:
+    matchLabels:
+      app: simple-ner
