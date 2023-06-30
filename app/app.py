@@ -10,7 +10,7 @@ model = Model()
 def predict():
     data = request.get_json()
     text = data["text"]
-    prediction = model.recognize_entities(text)
+    prediction = model.recognize_human_names(text)
     return jsonify(prediction)
 
 
